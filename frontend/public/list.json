@@ -1,0 +1,89 @@
+[
+    {
+        "id": 1,
+        "name": "Ikigai",
+        "title": "Lorem ipsum dolor sit amet, consectet",
+        "category": "Free",
+        "price": 0,
+        "image": "/images/ikigai.jpg"},
+    {
+        "id": 2,
+        "name": "Think and Grow Rich",
+        "title": "Lorem ipsum dolor sit amet, consectet",
+        "category": "Free",
+        "price": 0,
+        "image": "/images/thinkandgrow.png"
+    },
+    {
+        "id": 3,
+        "name": "Atomic Habit",
+        "title": "Lorem ipsum dolor sit amet, consectet",
+        "category": "Free",
+        "price": 0,
+        "image": "/images/atomic.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Alchemist",
+        "title": "Lorem ipsum dolor sit amet, consectet",
+        "category": "Free",
+        "price": 0,
+        "image": "/images/alchemist.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Intelligent Investor",
+        "title": "Lorem ipsum dolor sit amet, consectet",
+        "category": "Free",
+        "price": 0,
+        "image": "/images/intelligent.png"
+    },
+    {
+        "id": 6,
+        "name": "Build Don't Talk",
+        "title": "Lorem ipsum dolor sit amet, consectet",
+        "category": "Free",
+        "price": 0,
+        "image": "/images/build.png"
+    },
+    {
+        "id": 7,
+        "name": "Build Don't Talk",
+        "title": "Lorem ipsum dolor sit amet, consectet",
+        "category": "Fictional",
+        "price": 500,
+        "image": "/images/build.png"
+    },
+    {
+        "id": 8,
+        "name": "Build Don't Talk",
+        "title": "Lorem ipsum dolor sit amet, consectet",
+        "category": "Business",
+        "price": 900,
+        "image": "/images/build.png"
+    },
+    {
+        "id": 9,
+        "name": "Build Don't Talk",
+        "title": "Lorem ipsum dolor sit amet, consectet",
+        "category": "Mindset",
+        "price": 400,
+        "image": "/images/build.png"
+    },
+    {
+        "id": 10,
+        "name": "Mindset Game",
+        "title": "Lorem ipsum dolor sit amet, consectet",
+        "category": "Mindset",
+        "price": 850,
+        "image": "/images/build.png"
+    },
+    {
+        "id": 11,
+        "name": "Book",
+        "title": "Lorem ipsum dolor sit amet, consectet",
+        "category": "Knowledge",
+        "price": 760,
+        "image": "/images/build.png"
+    }
+]
