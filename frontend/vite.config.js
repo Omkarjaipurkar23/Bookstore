@@ -7,5 +7,9 @@ export default defineConfig({
   plugins: [react(),json()],
   json: {
     stringify: true, // Ensures JSON can be imported as a module
+  },
+  build: {
+    outDir: "dist", // Ensure Vite outputs to "dist"
+    emptyOutDir: true
   }
 })
