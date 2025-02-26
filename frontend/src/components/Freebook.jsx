@@ -2,23 +2,36 @@ import React, { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import axios from "axios";
 import Cards from "./Cards"; // ✅ Import Cards component
 
 function Freebook() {
-  const [list, setList] = useState([]);
+  const [books, setBooks] = useState([]); // ✅ Store books from backend
+  const [loading, setLoading] = useState(true); // ✅ Track loading state
+  const [error, setError] = useState(null); // ✅ Track error state
 
   useEffect(() => {
-    fetch("./list.json") // ✅ Ensure `list.json` is inside `public/`
-      .then((response) => response.json())
-      .then((data) => setList(data))
-      .catch((error) => console.error("Error loading JSON:", error));
+    const getBooks = async () => {
+      try {
+        const res = await axios.get("http://localhost:4001/book");
+        console.log("Fetched Books:", res.data); // ✅ Debugging
+        setBooks(res.data);
+      } catch (error) {
+        console.error("Error fetching books:", error);
+        setError("Failed to load books");
+      } finally {
+        setLoading(false);
+      }
+    };
+    getBooks();
   }, []);
 
-  const filterBook = list.filter((data) => data.category === "Free");
+  // ✅ Filter books with category "Free"
+  const filterBook = books.filter((book) => book.category === "Free");
 
   const settings = {
     dots: true,
-    infinite: false, // ✅ Keep this consistent in breakpoints
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -29,7 +42,7 @@ function Freebook() {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: false, // ✅ Keep this consistent
+          infinite: false,
           dots: true,
         },
       },
@@ -53,23 +66,25 @@ function Freebook() {
 
   return (
     <div className="max-w-screen-2xl container mx-auto md:px-5 dark:bg-slate-900 dark:text-white px-4 my-10">
-      <div className="mx-5 my-10 ">
-        <h1 className="font-semibold text-3xl pb-2 flex align-middle justify-center ">
+      <div className="mx-5 my-10">
+        <h1 className="font-semibold text-3xl pb-2 flex align-middle justify-center">
           Free Offered Books
         </h1>
       </div>
 
-      <div>
-        {filterBook.length > 0 ? ( // ✅ Avoid rendering Slider if no books found
-          <Slider {...settings}>
-            {filterBook.map((item) => (
-              <Cards item={item} key={item.id} />
-            ))}
-          </Slider>
-        ) : (
-          <p className="text-center text-gray-500">No free books available.</p>
-        )}
-      </div>
+      {loading ? (
+        <p className="text-center text-gray-500">Loading books...</p>
+      ) : error ? (
+        <p className="text-center text-red-500">{error}</p>
+      ) : filterBook.length > 0 ? (
+        <Slider {...settings}>
+          {filterBook.map((item) => (
+            <Cards item={item} key={item.id} />
+          ))}
+        </Slider>
+      ) : (
+        <p className="text-center text-gray-500">No free books available.</p>
+      )}
     </div>
   );
 }
